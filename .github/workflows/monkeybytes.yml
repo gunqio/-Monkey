@@ -13,9 +13,10 @@ jobs:
       - name: 📥 拉取私库脚本
         uses: actions/checkout@v4
         with:
-          repository: ${{ github.repository_owner }}/MonkeyBytes-Private
-          token: ${{ secrets.PRIVATE_REPO_TOKEN }}
+          repository: gunqio/zhiyong   # 指定目标仓库
+          token: ${{ secrets.PRIVATE_REPO_TOKEN }}  # 请确保在仓库 Secrets 中配置此令牌
           path: private
+          ref: main   # 可指定分支，默认 main
           
       - name: 📂 复制脚本到工作目录
         run: cp private/monkeybytes.py monkeybytes.py
